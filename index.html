@@ -214,7 +214,8 @@
 
             if (Clerk.user) {
                 // CATASTRACA LIBERADA: Usuário Logado
-                btnTrama.href = "https://trama-app-production.up.railway.app";
+                // A PONTE: Adicionamos o ?auth= com a sua senha mestra no final do link
+                btnTrama.href = "https://trama-app-production.up.railway.app/?auth=upe.petrolina";
                 btnTrama.target = "_blank";
                 Clerk.mountUserButton(perfilUsuario);
             } else {
