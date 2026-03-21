@@ -1,0 +1,55 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Navbar Scroll Effect
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // 2. Intersection Observer for Fade-In-Up Animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // trigger when 15% visible
+    };
+
+    const animateOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optional: Stop observing once animated if we don't want repeat
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const elementsToAnimate = document.querySelectorAll('.fade-in-up');
+    elementsToAnimate.forEach(el => animateOnScroll.observe(el));
+    
+    // 3. Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Adjust for fixed navbar
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
