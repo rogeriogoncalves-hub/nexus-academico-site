@@ -21,9 +21,6 @@
 
     <header class="navbar">
         <div class="container nav-content">
-            <div class="logo-link">
-                <!-- Logo was centrally moved to hero section -->
-            </div>
             <nav class="nav-links">
                 <a href="#trama">Nossas Aplicações</a>
                 <a href="#funcionalidades">Como Funciona</a>
@@ -33,7 +30,6 @@
     </header>
 
     <main>
-        <!-- HERO SECTION -->
         <section class="hero" id="home">
             <div class="container hero-content">
                 <div class="hero-text fade-in-up">
@@ -89,7 +85,6 @@
                                         <polyline points="12 5 19 12 12 19"></polyline>
                                     </svg>
                                 </a>
-
                                 <div id="perfil-usuario"></div>
                             </div>
                         </div>
@@ -98,7 +93,6 @@
             </div>
         </section>
 
-        <!-- FEATURES SECTION -->
         <section class="features" id="funcionalidades">
             <div class="container">
                 <div class="section-header fade-in-up">
@@ -107,42 +101,34 @@
                 </div>
 
                 <div class="features-grid">
-                    <!-- Feature 1 -->
                     <div class="feature-card glass-panel fade-in-up">
                         <div class="feature-icon">🔤</div>
                         <h3>Léxico e Frequência</h3>
                         <p>Exploração descritiva do vocabulário. Nuvem de palavras vetorial, extração de Key Word In
                             Context (KWIC) e motor de similaridade semântica para categorização dedutiva.</p>
                     </div>
-
-                    <!-- Feature 2 -->
                     <div class="feature-card glass-panel fade-in-up delay-1">
                         <div class="feature-icon">🎭</div>
                         <h3>Análise de Sentimento</h3>
-                        <p>Motor lexicográfico avançado para identificação de polaridade discursiva (positiva, negativa,
-                            neutra), varrendo frases e filtrando inversões por partículas de negação.</p>
+                        <p>Motor lexicográfico avançado para identificação de polaridade discursiva, varrendo frases e
+                            filtrando inversões por partículas de negação.</p>
                     </div>
-
-                    <!-- Feature 3 -->
                     <div class="feature-card glass-panel fade-in-up delay-2">
                         <div class="feature-icon">🌐</div>
                         <h3>Estatística Espacial</h3>
                         <p>Análise multivariada rica: Grafos de Similitude (Pyvis), Redução Dimensional (PCA, t-SNE) e
-                            visualizações avançadas de redes e árvores genealógicas semânticas.</p>
+                            visualizações avançadas de redes.</p>
                     </div>
-
-                    <!-- Feature 4 -->
                     <div class="feature-card glass-panel fade-in-up delay-3">
                         <div class="feature-icon">📊</div>
                         <h3>Modelagem de Tópicos (LDA)</h3>
                         <p>Descoberta indutiva via Inteligência Artificial que identifica temas estruturais latentes no
-                            texto e sugere rótulos acadêmicos precisos para as categorias.</p>
+                            texto e sugere rótulos acadêmicos precisos.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AUDIENCE SECTION -->
         <section class="audience" id="para-quem">
             <div class="container">
                 <div class="audience-wrapper glass-panel fade-in-up">
@@ -150,7 +136,6 @@
                         <h2>Para quem é o Nexus Acadêmico?</h2>
                         <p>Foi desenhado sob medida para suprir as exigências de rigor e reprodutibilidade do método
                             científico.</p>
-
                         <div class="audience-list">
                             <div class="audience-item">
                                 <div class="check-icon">✓</div>
@@ -168,14 +153,6 @@
                                         exploração matemática avançada.</p>
                                 </div>
                             </div>
-                            <div class="audience-item">
-                                <div class="check-icon">✓</div>
-                                <div>
-                                    <h4>Graduação (TCCs, Iniciação Científica)</h4>
-                                    <p>Uma interface intuitiva que acelera a exploração de dados sem comprometer o
-                                        aprendizado metodológico.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -189,25 +166,11 @@
                 <p><strong>Nexus Acadêmico</strong></p>
                 <p>Plataforma avançada de metodologias e tecnologias de pesquisa corporativa e acadêmica.</p>
             </div>
-            <div class="footer-devs">
-                <h4>Desenvolvimento</h4>
-                <p>Nexus Acadêmico</p>
-            </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Nexus Acadêmico. Todos os direitos reservados.</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
-
-    <script async crossorigin="anonymous"
-        data-clerk-publishable-key="pk_test_YWNlLXRvdWNhbi0xMC5jbGVyay5hY2NvdW50cy5kZXYk"
-        src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
-
-    <script async crossorigin="anonymous"
-        data-clerk-publishable-key="pk_test_YWN1LXRvdWNhbi0xMC5jbGVyay5hY2NvdW50cy5kZXY"
-        src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
 
     <script src="script.js"></script>
 
@@ -223,35 +186,38 @@
                 const perfilUsuario = document.getElementById("perfil-usuario");
 
                 if (Clerk.user) {
-                    // Monta o botão de perfil do usuário logado
+                    // Monta o botão de perfil para o pesquisador logado
                     Clerk.mountUserButton(perfilUsuario);
 
-                    // 1. Extraímos as permissões do usuário
-                    const role = Clerk.user.publicMetadata.role;
-                    const paidUntil = Clerk.user.publicMetadata.paid_until;
+                    // 1. Extraímos as permissões do usuário (Metadata do Clerk)
+                    const role = Clerk.user.publicMetadata.role; // 'admin' ou 'tester'
+                    const paidUntil = Clerk.user.publicMetadata.paid_until; // Data de expiração
                     const now = new Date().getTime();
 
-                    // 2. Lógica de Triagem de Acesso
+                    // 2. Lógica de Redirecionamento e Acesso
                     if (role === 'admin' || role === 'tester') {
+                        // ACESSO CONVIDADO/DEV: Botão especial e link com senha mestra
                         btnTrama.innerText = "Acessar (Modo Developer)";
                         btnTrama.href = "https://trama-app-production.up.railway.app/?auth=upe.petrolina";
                         btnTrama.target = "_blank";
                     }
                     else if (paidUntil && paidUntil > now) {
+                        // ACESSO PAGO VÁLIDO: Libera o Trama por 24h
                         btnTrama.innerText = "Acessar Aplicação";
                         btnTrama.href = "https://trama-app-production.up.railway.app/?auth=upe.petrolina";
                         btnTrama.target = "_blank";
                     }
                     else {
+                        // USUÁRIO SEM ACESSO ATIVO: Direciona para o Stripe
                         btnTrama.innerText = "Liberar Acesso (R$ 15/24h)";
                         btnTrama.onclick = function (e) {
                             e.preventDefault();
-                            alert("Redirecionando para o pagamento seguro do Stripe...");
-                            // window.location.href = "LINK_DO_STRIPE";
+                            alert("Redirecionando para o pagamento seguro de 24 horas...");
+                            // window.location.href = "SEU_LINK_STRIPE_AQUI";
                         };
                     }
                 } else {
-                    // Caso o usuário não esteja logado
+                    // USUÁRIO DESLOGADO: Abre o pop-up de login
                     btnTrama.onclick = function (event) {
                         event.preventDefault();
                         Clerk.openSignIn();
