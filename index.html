@@ -22,62 +22,156 @@
     <header class="navbar">
         <div class="container nav-content">
             <nav class="nav-links">
-                <a href="#trama">Nossas Aplicações</a>
-                <a href="#funcionalidades">Como Funciona</a>
+                <a href="#aplicacoes-intro">Nossas Aplicações</a>
                 <a href="#para-quem">Para Quem É</a>
+                <a href="#planos">Preços</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero" id="home">
+        <section class="hero" id="home" style="padding: 10rem 0 4rem 0; min-height: auto;">
             <div class="container hero-content">
-                <div class="hero-text fade-in-up">
-                    <div class="hero-logo-center">
-                        <img src="assets/nexus2.png" alt="Nexus Acadêmico" class="main-hero-logo">
+                <div class="hero-text fade-in-up" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                    <div class="hero-logo-center" style="margin-bottom: 3rem;">
+                        <img src="assets/Nexus.png" alt="Nexus Acadêmico" class="main-hero-logo">
                     </div>
-                    <div class="badge">Inovação em Análise Qualitativa</div>
-                    <h1>O seu hub de aplicações para produtividade acadêmica potencializadas por
-                        <span>inovação digital</span>.
+                    <h1 style="font-size: 3rem; line-height: 1.3; margin-bottom: 2rem;">O seu ecossistema de aplicações
+                        para produtividade acadêmica potencializadas por
+                        <span class="gradient-text">inovação digital</span>.
                     </h1>
-                    <p>Conectamos professores, pesquisadores, graduandos e pós-graduandos às melhores soluções de
-                        análise textual e matemática multivariada.</p>
-                    <div class="hero-cta">
-                        <a href="#trama" class="btn btn-primary">Conheça Nossas Aplicações</a>
-                        <a href="#funcionalidades" class="btn btn-secondary">Explorar Recursos</a>
+
+                    <div class="fade-in-up delay-1"
+                        style="background: rgba(109, 40, 217, 0.03); border: 1px solid rgba(109, 40, 217, 0.08); padding: 2rem; border-radius: 16px; margin: 0 auto; max-width: 750px;">
+                        <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem;">Por que utilizar o
+                            Nexus?</h3>
+                        <p
+                            style="font-size: 1.15rem; color: var(--text-primary); font-weight: 600; margin-bottom: 0.8rem;">
+                            Reduza o tempo operacional da sua pesquisa sem abrir mão do rigor metodológico.
+                        </p>
+                        <p style="font-size: 1.05rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+                            Utilize aplicações que estruturam análises, organizam dados e validam a consistência do seu
+                            trabalho acadêmico em diferentes etapas da produção, apoiadas por modelos de IA de
+                            raciocínio profundo e, em alguns casos, por sistemas multiagentes.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="app-showcase" id="trama">
+        <section id="aplicacoes-intro" style="padding: 1rem 0 6rem 0;">
             <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2>Aplicação em Destaque</h2>
-                    <p>Conheça a nossa primeira solução totalmente integrada para análise metodológica avançada.</p>
-                </div>
+                <div class="ecosystem-cards" style="max-width: 1000px; margin: 0 auto;">
+                    <a href="#trama-section" class="ecosystem-card fade-in-up delay-1">
+                        <h4>TRAMA</h4>
+                        <p>Mapa Semântico do Discurso</p>
+                    </a>
+                    <a href="#novelo-section" class="ecosystem-card fade-in-up delay-2">
+                        <h4>NOVELO</h4>
+                        <p>Análise de Conteúdo</p>
+                    </a>
+                    <a href="#axis-section" class="ecosystem-card fade-in-up delay-3">
+                        <h4>AXIS</h4>
+                        <p>Radar de Consistência de Projetos</p>
+                    </a>
 
-                <div class="app-card glass-panel fade-in-up delay-1">
+                    <!-- Expansão em Desenvolvimento -->
+                    <div class="ecosystem-card fade-in-up delay-4"
+                        style="background: rgba(0,0,0,0.015); border: 2px dashed rgba(0,0,0,0.08); box-shadow: none; pointer-events: none; opacity: 0.8;">
+                        <h4 style="color: var(--text-muted); font-size: 1.25rem;">Artigo Quantitativo</h4>
+                        <p style="font-size: 0.95rem; font-style: italic;">(aplicação em desenvolvimento)</p>
+                    </div>
+                    <div class="ecosystem-card fade-in-up delay-4"
+                        style="background: rgba(0,0,0,0.015); border: 2px dashed rgba(0,0,0,0.08); box-shadow: none; pointer-events: none; opacity: 0.8;">
+                        <h4 style="color: var(--text-muted); font-size: 1.25rem;">Artigo Qualitativo</h4>
+                        <p style="font-size: 0.95rem; font-style: italic;">(aplicação em desenvolvimento)</p>
+                    </div>
+                    <div class="ecosystem-card fade-in-up delay-4"
+                        style="background: rgba(0,0,0,0.015); border: 2px dashed rgba(0,0,0,0.08); box-shadow: none; pointer-events: none; opacity: 0.8;">
+                        <h4 style="color: var(--text-muted); font-size: 1.25rem;">Escala PEDro</h4>
+                        <p style="font-size: 0.95rem; font-style: italic;">(aplicação em desenvolvimento)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planos"
+            style="padding: 5rem 0; background-color: rgba(109, 40, 217, 0.015); border-top: 1px solid rgba(0,0,0,0.03); border-bottom: 1px solid rgba(0,0,0,0.03);">
+            <div class="container">
+                <div class="pricing-summary glass-panel fade-in-up delay-4"
+                    style="max-width: 1000px; margin: 0 auto; padding: 4rem; text-align: center;">
+                    <h2 style="color: var(--primary); margin-bottom: 1rem; font-size: 2rem;">
+                        Acesse as aplicações conforme sua necessidade</h2>
+                    <p
+                        style="color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem; max-width: 650px; margin-left: auto; margin-right: auto;">
+                        Escolha o período ideal para o seu momento acadêmico — desde um acesso rápido até ciclos
+                        completos de produção.</p>
+
+                    <div class="pricing-list">
+                        <div class="pricing-card fade-in-up delay-1">
+                            <div class="pricing-card-badge">24h: R$ 15,00</div>
+                            <div class="pricing-card-desc">experimente todas as aplicações com acesso completo por 24
+                                horas</div>
+                        </div>
+
+                        <div class="pricing-card fade-in-up delay-1">
+                            <div class="pricing-card-badge">7 dias: R$ 49,00</div>
+                            <div class="pricing-card-desc">acelere a produção do seu artigo com apoio de IA</div>
+                        </div>
+
+                        <div class="pricing-card fade-in-up delay-2">
+                            <div class="pricing-card-badge">15 dias: R$ 79,00</div>
+                            <div class="pricing-card-desc">analise entrevistas e organize seus dados</div>
+                        </div>
+
+                        <div class="pricing-card fade-in-up delay-2">
+                            <div class="pricing-card-badge">30 dias: R$ 109,00</div>
+                            <div class="pricing-card-desc">desenvolva seu projeto de pesquisa</div>
+                        </div>
+
+                        <div class="pricing-card fade-in-up delay-3">
+                            <div class="pricing-card-badge">90 dias: R$ 189,00</div>
+                            <div class="pricing-card-desc">conduza sua pesquisa com suporte contínuo</div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <a href="INSERIR LINK AQUI" class="btn btn-primary fade-in-up delay-4"
+                            style="font-size: 1.15rem; padding: 1rem 3rem; display: inline-block;">Adquira seu acesso
+                            &rarr;</a>
+                    </div>
+
+                    <div
+                        style="background: rgba(109, 40, 217, 0.05); border-radius: 12px; padding: 1.5rem; display: inline-block;">
+                        <p style="font-weight: 600; color: var(--text-primary); margin: 0; font-size: 1.15rem;">
+                            Use quando precisar. <span style="color: var(--primary);">Sem recorrência
+                                obrigatória.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="app-showcase" id="trama-section" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="app-card glass-panel fade-in-up">
                     <div class="app-card-content">
                         <div class="app-logo-wrapper">
                             <img src="assets/Trama.png" alt="Trama App Logo" class="app-logo">
                         </div>
                         <div class="app-details">
-                            <h3 class="gradient-text">Trama</h3>
-                            <p class="app-subtitle">Análise Espacial e Relacional do Discurso</p>
+                            <h3 class="gradient-text">TRAMA</h3>
+                            <p class="app-subtitle">Mapa Semântico do Discurso</p>
                             <p class="app-description">
-                                O Trama é uma plataforma avançada focada na análise léxica e estatística textual
-                                multivariada para pesquisas qualitativas. O sistema converte corpus discursivos em
-                                representações visuais, métricas estatísticas e projeções topológicas de alta precisão.
+                                O TRAMA é uma solução avançada por meio da estatística multivariada e
+                                processamento de linguagem natural. Desenvolvido para superar as limitações de
+                                ferramentas tradicionais, ele converte grandes corpus discursivos em mapas
+                                semânticos e redes de similitude de alta precisão, garantindo rigor metodológico
+                                e economia de tempo na análise qualitativa.
                             </p>
-                            <ul class="app-features-list">
-                                <li>Processamento seguro com sigilo de dados</li>
-                                <li>Integração com modelos de linguagem (IA)</li>
-                                <li>Redução dimensional e estatística espacial</li>
-                            </ul>
-
-                            <div class="app-actions" style="display: flex; gap: 15px; align-items: center;">
-                                <a href="#" id="btn-trama" class="btn btn-action">
+                            <div class="app-actions"
+                                style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://trama-app-production.up.railway.app/" id="btn-trama" target="_blank"
+                                    class="btn btn-action">
                                     Acessar Aplicação
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -85,12 +179,75 @@
                                         <polyline points="12 5 19 12 12 19"></polyline>
                                     </svg>
                                 </a>
+                                <a href="#funcionalidades" class="btn btn-secondary"
+                                    style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">Conheça o Trama &rarr;</a>
                                 <div id="perfil-usuario"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="app-showcase" id="novelo-section" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="app-card glass-panel fade-in-up">
+                    <div class="app-card-content">
+                        <div class="app-logo-wrapper">
+                            <img src="assets/Novelo.png" alt="Novelo App Logo" class="app-logo">
+                        </div>
+                        <div class="app-details">
+                            <h3 class="gradient-text">NOVELO</h3>
+                            <p class="app-subtitle">Análise de Conteúdo</p>
+                            <p class="app-description">
+                                O NOVELO oferece um ambiente integrado para a análise de conteúdo profunda. Com
+                                ferramentas interativas para codificação e categorização, permite ao pesquisador
+                                destrinchar textos complexos, identificar padrões e extrair significados com
+                                eficiência e rigor analítico incomparáveis.
+                            </p>
+                            <div class="app-actions"
+                                style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                                <a href="#" class="btn btn-action" style="pointer-events: none; opacity: 0.6;">Em
+                                    Breve</a>
+                                <a href="#funcionalidades-novelo" class="btn btn-secondary"
+                                    style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">Conheça o Novelo &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="app-showcase" id="axis-section" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="app-card glass-panel fade-in-up">
+                    <div class="app-card-content">
+                        <div class="app-logo-wrapper">
+                            <img src="assets/Axis.png" alt="Axis App Logo" class="app-logo">
+                        </div>
+                        <div class="app-details">
+                            <h3 class="gradient-text">AXIS</h3>
+                            <p class="app-subtitle">Radar de Consistência de Projetos</p>
+                            <p class="app-description">
+                                O AXIS atua como um radar inteligente para projetos acadêmicos, garantindo a
+                                consistência transversal entre objetivos, fundamentação teórica e metodologia.
+                                Uma solução inovadora que auxilia na validação do alinhamento lógico da sua
+                                pesquisa antes mesmo da submissão.
+                            </p>
+                            <div class="app-actions"
+                                style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                                <a href="#" class="btn btn-action" style="pointer-events: none; opacity: 0.6;">Em
+                                    Breve</a>
+                                <a href="#funcionalidades-axis" class="btn btn-secondary"
+                                    style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">Conheça o Axis &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        </div>
         </section>
 
         <section class="features" id="funcionalidades">
@@ -124,6 +281,89 @@
                         <h3>Modelagem de Tópicos (LDA)</h3>
                         <p>Descoberta indutiva via Inteligência Artificial que identifica temas estruturais latentes no
                             texto e sugere rótulos acadêmicos precisos.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-container fade-in-up delay-4" style="margin-top: 4rem;">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Galeria do Trama
+                        (alguns exemplos de uso)
+                    </h3>
+                    <div
+                        style="display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem;">
+                        <div
+                            style="scroll-snap-align: start; min-width: 80%; flex-shrink: 0; height: 450px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border-subtle);">
+                            <img src="assets/carrossel_trama/1. nuvem_palavras.png" alt="Nuvem de Palavras"
+                                style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 1rem;">
+                        </div>
+                        <div
+                            style="scroll-snap-align: start; min-width: 80%; flex-shrink: 0; height: 450px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border-subtle);">
+                            <img src="assets/carrossel_trama/2. grafo_similitude.png" alt="Grafo Similitude"
+                                style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 1rem;">
+                        </div>
+                        <div
+                            style="scroll-snap-align: start; min-width: 80%; flex-shrink: 0; height: 450px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border-subtle);">
+                            <img src="assets/carrossel_trama/3. Árvore de palavras.png" alt="Árvore de palavras"
+                                style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 1rem;">
+                        </div>
+                        <div
+                            style="scroll-snap-align: start; min-width: 80%; flex-shrink: 0; height: 450px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border-subtle);">
+                            <img src="assets/carrossel_trama/4. Heat Map.png" alt="Heat Map"
+                                style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 1rem;">
+                        </div>
+                        <div
+                            style="scroll-snap-align: start; min-width: 80%; flex-shrink: 0; height: 450px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border-subtle);">
+                            <img src="assets/carrossel_trama/5. Galáxia Semântica.png" alt="Galáxia Semântica"
+                                style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 1rem;">
+                        </div>
+                        <div
+                            style="scroll-snap-align: start; min-width: 80%; flex-shrink: 0; height: 450px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border-subtle);">
+                            <img src="assets/carrossel_trama/6. Diagrama Circular.png" alt="Diagrama Circular"
+                                style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 1rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="funcionalidades-novelo"
+            style="background-color: var(--bg-base); padding-top: 2rem;">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2>Estrutura e Funcionalidades do Novelo</h2>
+                    <p>Visão interativa da análise de conteúdo avançada e categorização.</p>
+                </div>
+                <div class="carousel-container fade-in-up delay-1" style="margin-top: 2rem;">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Galeria do Novelo
+                    </h3>
+                    <div
+                        style="display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem;">
+                        <div
+                            style="scroll-snap-align: start; min-width: 80%; height: 450px; background: rgba(0,0,0,0.03); border-radius: 16px; border: 1px dashed rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+                            <p style="color: var(--text-muted); font-size: 1.1rem;">Imagem do Carrossel 1 - NOVELO (em
+                                breve)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="funcionalidades-axis"
+            style="background-color: rgba(109, 40, 217, 0.015); padding-top: 4rem; border-top: 1px solid rgba(0,0,0,0.03);">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2>Estrutura e Funcionalidades do Axis</h2>
+                    <p>Demonstração do radar de consistência em ação para seus projetos.</p>
+                </div>
+                <div class="carousel-container fade-in-up delay-1" style="margin-top: 2rem;">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Galeria do Axis
+                    </h3>
+                    <div
+                        style="display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem;">
+                        <div
+                            style="scroll-snap-align: start; min-width: 80%; height: 450px; background: rgba(0,0,0,0.03); border-radius: 16px; border: 1px dashed rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+                            <p style="color: var(--text-muted); font-size: 1.1rem;">Imagem do Carrossel 1 - AXIS (em
+                                breve)</p>
+                        </div>
                     </div>
                 </div>
             </div>

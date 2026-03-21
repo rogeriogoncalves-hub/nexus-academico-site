@@ -179,7 +179,7 @@ h2 {
 }
 
 .main-hero-logo {
-    max-width: 480px;
+    max-width: 600px;
     width: 100%;
     height: auto;
     filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.15));
@@ -299,18 +299,20 @@ section {
 .app-logo-wrapper {
     background: #ffffff;
     border-radius: 20px;
-    padding: 1rem; /* Reduced padding to let the logo fill more space */
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-height: 250px;
+    min-height: 300px;
     border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
 }
 
 .app-logo {
-    max-width: 100%;
-    max-height: 240px; /* Increased from 180px */
+    width: 100%;
+    height: 100%;
+    max-height: 340px;
     object-fit: contain;
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
     transition: transform var(--transition);
@@ -530,6 +532,129 @@ section {
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
+
+/* Ecosystem Cards */
+.ecosystem-cards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.ecosystem-card {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ecosystem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+    border-color: rgba(109, 40, 217, 0.2);
+}
+
+.ecosystem-card h4 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.ecosystem-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Pricing Cards */
+.pricing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+}
+
+.pricing-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    text-align: left;
+}
+
+.pricing-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 12px 25px rgba(109, 40, 217, 0.08);
+    border-color: rgba(109, 40, 217, 0.2);
+}
+
+.pricing-card-badge {
+    background: rgba(109, 40, 217, 0.05);
+    color: var(--primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid rgba(109, 40, 217, 0.1);
+}
+
+.pricing-card-desc {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    flex: 1;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.pricing-card-icon {
+    color: var(--text-muted);
+    transition: color var(--transition), transform var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing-card:hover .pricing-card-icon {
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+    .pricing-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    .pricing-card-desc {
+        margin: 0;
+    }
+    .pricing-card-badge {
+        width: 100%;
+    }
+    .pricing-card-icon {
+        display: none;
+    }
+}
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
