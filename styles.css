@@ -1,14 +1,14 @@
 :root {
     /* Color Palette - Elegant Light Mode */
-    --bg-base: #f8fafc; /* Soft white/gray */
+    --bg-base: #ffffff; /* White background */
     --bg-surface: rgba(255, 255, 255, 0.9);
     --bg-surface-hover: rgba(255, 255, 255, 1);
     --bg-surface-glass: rgba(255, 255, 255, 0.7);
     
-    --primary: #6d28d9;       /* Deep purple */
-    --primary-light: #8b5cf6; /* Vibrant purple */
-    --secondary: #2563eb;     /* Royal blue */
-    --secondary-light: #3b82f6; /* Bright blue */
+    --primary: #0369a1;       /* Deep blue matching logo base */
+    --primary-light: #0ea5e9;
+    --secondary: #0d9488;     /* Teal matching logo top */
+    --secondary-light: #14b8a6;
     --accent: #f43f5e;        /* Rose accent */
     
     --text-primary: #0f172a;  /* Very dark gray text */
@@ -20,6 +20,8 @@
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
+    --font-spartan: 'League Spartan', sans-serif;
+    --font-aoboshi: 'Aoboshi One', serif;
 
     /* Transition / Layout */
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -178,12 +180,66 @@ h2 {
     margin-bottom: 4.5rem; /* Increased space as requested */
 }
 
-.main-hero-logo {
-    max-width: 600px;
-    width: 100%;
+.nexus-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.nexus-logo-symbol {
+    width: 25rem;
     height: auto;
-    filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.15));
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.15));
     animation: pulse-glow 4s infinite alternate;
+}
+
+.nexus-logo-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nexus-logo-line1,
+.nexus-logo-line2 {
+    font-family: var(--font-spartan);
+    font-weight: 800;
+    font-size: 6rem;
+    line-height: 0.95;
+    color: var(--text-primary);
+    letter-spacing: -0.04em;
+}
+
+.nexus-logo-line-sub {
+    font-family: var(--font-aoboshi);
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--secondary);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+.nexus-logo-line-sub:first-of-type {
+    margin-top: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .nexus-logo-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .nexus-logo-symbol {
+        width: 16rem;
+    }
+    .nexus-logo-line1,
+    .nexus-logo-line2 {
+        font-size: 4rem;
+    }
+    .nexus-logo-line-sub {
+        font-size: 1.25rem;
+    }
 }
 
 @keyframes pulse-glow {
