@@ -25,9 +25,9 @@
                 <a href="#planos">Preços</a>
 
                 <div id="auth-buttons" style="display: flex; gap: 1rem; align-items: center; margin-left: 1rem;">
-                    <a href="javascript:void(0)" onclick="Clerk.openSignIn()"
+                    <a href="javascript:void(0)" id="btn-entrar"
                         style="font-weight: 600; text-decoration: none;">Entrar</a>
-                    <a href="javascript:void(0)" onclick="Clerk.openSignUp()" class="btn btn-primary"
+                    <a href="javascript:void(0)" id="btn-cadastrar" class="btn btn-primary"
                         style="padding: 0.4rem 1.2rem; font-size: 0.9rem; margin-left: -0.5rem;">Cadastre-se</a>
                 </div>
                 <div id="perfil-usuario" style="margin-left: 1rem; display: none;"></div>
@@ -457,14 +457,19 @@
         src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
 
     <script>
-        // 1. FUNÇÃO GLOBAL (Precisa estar fora do "load" para os botões de preço funcionarem)
+        // 1. FUNÇÃO GLOBAL PROTEGIDA
         function comprarComVerificacao(stripeUrl) {
             if (typeof Clerk !== 'undefined' && Clerk.user) {
                 const urlComId = stripeUrl + "?client_reference_id=" + Clerk.user.id;
                 window.open(urlComId, '_blank');
             } else {
                 alert("É preciso entrar na plataforma se já tiver registro ou se cadastrar se for novo usuário.");
-                Clerk.openSignIn();
+                // Verifica novamente se o Clerk existe para não quebrar a página
+                if (typeof Clerk !== 'undefined' && typeof Clerk.openSignIn === 'function') {
+                    Clerk.openSignIn();
+                } else {
+                    console.error("Serviço de autenticação temporariamente indisponível.");
+                }
             }
         }
 
@@ -474,25 +479,30 @@
                 await Clerk.load();
                 const btnTrama = document.getElementById("btn-trama");
                 const perfilUsuario = document.getElementById("perfil-usuario");
+                const authButtons = document.getElementById("auth-buttons");
 
-                if (!btnTrama) return; // Cautela técnica caso o ID mude
+                const btnEntrar = document.getElementById("btn-entrar");
+                const btnCadastrar = document.getElementById("btn-cadastrar");
+
+                // Atrela os eventos de clique de forma segura apenas APÓS o Clerk carregar
+                if (btnEntrar) btnEntrar.onclick = () => Clerk.openSignIn();
+                if (btnCadastrar) btnCadastrar.onclick = () => Clerk.openSignUp();
+
+                if (!btnTrama) return;
 
                 if (Clerk.user) {
-                    // Monta o botão de perfil no canto superior e esconde Entrar/Cadastre-se
-                    document.getElementById("perfil-usuario").style.display = "block";
-                    const authButtons = document.getElementById("auth-buttons");
+                    perfilUsuario.style.display = "block";
                     if (authButtons) authButtons.style.display = "none";
                     Clerk.mountUserButton(perfilUsuario);
 
-                    const meta = Clerk.user.publicMetadata;
+                    const meta = Clerk.user.publicMetadata || {};
                     const now = new Date();
                     const userId = Clerk.user.id;
 
-                    // Definição de Estados para a triagem Nexus
                     const isAdmin = meta.role === 'admin';
                     const isGuest = meta.role === 'guest' || meta.trama_access === 'full';
                     const isWaiting = meta.trama_status === 'waiting_activation';
-                    const isActive = meta.trama_status === 'active' && new Date(meta.trama_access_until) > now;
+                    const isActive = meta.trama_status === 'active' && meta.trama_access_until && new Date(meta.trama_access_until) > now;
 
                     if (isAdmin) {
                         btnTrama.innerText = "Acessar TRAMA (Developer)";
@@ -505,7 +515,6 @@
                         btnTrama.target = "_blank";
                     }
                     else if (isActive) {
-                        // Lógica do Cronómetro de Acesso
                         const expiraEm = new Date(meta.trama_access_until);
                         const diferencaMs = expiraEm - now;
                         const h = Math.floor(diferencaMs / 3600000);
@@ -526,7 +535,7 @@
                         btnTrama.onclick = async (e) => {
                             e.preventDefault();
                             btnTrama.innerText = "A processar...";
-                            const webhookUrl = "https://hook.eu1.make.com/p9ip89osziv9wpkeux850i6uvmzf3gi2"; // Importante: Cole a URL do Make aqui
+                            const webhookUrl = "https://hook.eu1.make.com/p9ip89osziv9wpkeux850i6uvmzf3gi2";
                             const response = await fetch(`${webhookUrl}?user_id=${userId}`);
                             if (response.ok) { window.location.reload(); }
                         };
@@ -536,19 +545,16 @@
                         btnTrama.href = "#planos";
                     }
                 } else {
-                    // Mostrar botões Entrar/Cadastre-se e esconder perfil
-                    const authButtons = document.getElementById("auth-buttons");
                     if (authButtons) authButtons.style.display = "flex";
-                    document.getElementById("perfil-usuario").style.display = "none";
+                    perfilUsuario.style.display = "none";
 
-                    // Se não estiver logado, o botão sempre abre o login
                     btnTrama.onclick = (e) => {
                         e.preventDefault();
                         Clerk.openSignIn();
                     };
                 }
             } catch (err) {
-                console.error("Erro na inicialização do Nexus:", err);
+                console.error("Erro na inicialização do Nexus. Ambiente local restringe chave pk_live:", err);
             }
         });
     </script>
