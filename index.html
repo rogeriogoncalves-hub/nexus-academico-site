@@ -23,6 +23,7 @@
                 <a href="#aplicacoes-intro">Nossas Aplicações</a>
                 <a href="#para-quem">Para Quem É</a>
                 <a href="#planos">Preços</a>
+                <div id="perfil-usuario" style="margin-left: 1rem;"></div>
             </nav>
         </div>
     </header>
@@ -118,48 +119,74 @@
                         ideal para sua demanda.
                     </p>
 
-                    <div class="pricing-list">
-                        <div class="pricing-card fade-in-up delay-1">
-                            <div class="pricing-card-badge">24h: R$ 19,99</div>
-                            <div class="pricing-card-desc">
-                                Até <strong>15 processamentos</strong> <span style="opacity: 0.9;">(ou 24h, o que
-                                    ocorrer primeiro)</span>
-                            </div>
-                        </div>
+                    <div class="pricing-tabs fade-in-up delay-1">
+                        <button class="pricing-tab active" data-target="pane-trama">Preços TRAMA</button>
+                        <button class="pricing-tab" data-target="pane-novelo">Preços Novelo</button>
+                        <button class="pricing-tab" data-target="pane-axis">Preços Axis</button>
+                    </div>
 
-                        <div class="pricing-card fade-in-up delay-1">
-                            <div class="pricing-card-badge">3 dias: R$ 49,99</div>
-                            <div class="pricing-card-desc">
-                                Até <strong>35 processamentos</strong> <span style="opacity: 0.9;">(ou 3 dias, o que
-                                    ocorrer primeiro)</span>
+                    <div id="pane-trama" class="pricing-pane active">
+                        <div class="pricing-list">
+                            <div class="pricing-card fade-in-up delay-1">
+                                <div class="pricing-card-badge">24h: R$ 19,99</div>
+                                <div class="pricing-card-desc">
+                                    Até <strong>15 processamentos</strong><br>
+                                    <span style="opacity: 0.9;">(ou 24h, o que ocorrer primeiro)</span>
+                                </div>
+                                <a href="javascript:void(0)"
+                                    onclick="comprarComVerificacao('https://buy.stripe.com/fZu14o3M5go6gIg5mjdby00')"
+                                    class="btn btn-primary pricing-btn">Adquirir Passe 24h</a>
                             </div>
-                        </div>
 
-                        <div class="pricing-card fade-in-up delay-2">
-                            <div class="pricing-card-badge">7 dias: R$ 69,99</div>
-                            <div class="pricing-card-desc">
-                                Até <strong>60 processamentos</strong> <span style="opacity: 0.9;">(ou 7 dias, o que
-                                    ocorrer primeiro)</span>
+                            <div class="pricing-card fade-in-up delay-1">
+                                <div class="pricing-card-badge">3 dias: R$ 49,99</div>
+                                <div class="pricing-card-desc">
+                                    Até <strong>60 processamentos</strong><br>
+                                    <span style="opacity: 0.9;">(ou 3 dias, o que ocorrer primeiro)</span>
+                                </div>
+                                <a href="javascript:void(0)"
+                                    onclick="comprarComVerificacao('https://buy.stripe.com/8x25kEbex6NwgIgg0Xdby02')"
+                                    class="btn btn-primary pricing-btn">Adquirir Passe 3 dias</a>
+                            </div>
+
+                            <div class="pricing-card fade-in-up delay-2">
+                                <div class="pricing-card-badge">7 dias: R$ 89,99</div>
+                                <div class="pricing-card-desc">
+                                    Até <strong>150 processamentos</strong><br>
+                                    <span style="opacity: 0.9;">(ou 7 dias, o que ocorrer primeiro)</span>
+                                </div>
+                                <a href="javascript:void(0)"
+                                    onclick="comprarComVerificacao('https://buy.stripe.com/9B6dRa2I17RA9fO163dby03')"
+                                    class="btn btn-primary pricing-btn">Adquirir Passe 7 dias</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Conceito de processamento (depois dos preços) -->
+                    <div id="pane-novelo" class="pricing-pane">
+                        <div class="pricing-list">
+                            <div class="pricing-card">
+                                <div class="pricing-card-desc" style="margin: 2rem 0;">Critérios e valores a definir.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pane-axis" class="pricing-pane">
+                        <div class="pricing-list">
+                            <div class="pricing-card">
+                                <div class="pricing-card-desc" style="margin: 2rem 0;">Critérios e valores a definir.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div
-                        style="margin: 2.25rem auto 0; max-width: 820px; color: var(--text-secondary); font-size: 0.98rem; line-height: 1.55;">
+                        style="margin: 2.25rem auto 1.5rem; max-width: 820px; color: var(--text-secondary); font-size: 0.98rem; line-height: 1.55;">
                         <p style="margin: 0;">
                             <strong style="color: var(--text-primary);">O que é um processamento?</strong>
-                            Cada vez que você <strong>gera um resultado</strong> (relatório, teste, resposta do chat ou
-                            geração/regeneração de imagem).
-                            Ajustes de configuração <strong>sem gerar novamente</strong> não consomem processamentos.
+                            Cada vez que você <strong>gera um resultado</strong>. Ajustes de configuração <strong>sem
+                                gerar novamente</strong> não consomem processamentos.
                         </p>
-                    </div>
-
-                    <div style="text-align: center; margin: 2.5rem 0 3rem;">
-                        <a href="INSERIR LINK AQUI" class="btn btn-primary fade-in-up delay-4"
-                            style="font-size: 1.15rem; padding: 1rem 3rem; display: inline-block;">
-                            Adquira seu acesso &rarr;
-                        </a>
                     </div>
 
                     <div
@@ -185,7 +212,10 @@
                             <h3 class="gradient-text">TRAMA</h3>
                             <p class="app-subtitle">Mapa Semântico do Discurso</p>
                             <p class="app-description">
-                                O TRAMA é uma solução avançada por meio da estatística multivariada e processamento de linguagem natural. Desenvolvido para superar as limitações de ferramentas tradicionais, ele converte grandes corpus discursivos em mapas semânticos e redes de similitude de alta precisão, garantindo rigor metodológico e economia de tempo na análise qualitativa.
+                                O TRAMA é uma solução avançada por meio da estatística multivariada e processamento de
+                                linguagem natural. Desenvolvido para superar as limitações de ferramentas tradicionais,
+                                ele converte grandes corpus discursivos em mapas semânticos e redes de similitude de
+                                alta precisão, garantindo rigor metodológico e economia de tempo na análise qualitativa.
                             </p>
                             <div class="app-actions"
                                 style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
@@ -424,56 +454,93 @@
     <script src="script.js"></script>
 
     <script async crossorigin="anonymous"
-        data-clerk-publishable-key="pk_test_YWN1LXRvdWNhbi0xMC5jbGVyay5hY2NvdW50cy5kZXY"
+        data-clerk-publishable-key="pk_test_YWNlLXRvdWNhbi0xMC5jbGVyay5hY2NvdW50cy5kZXY"
         src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
 
     <script>
+        // 1. FUNÇÃO GLOBAL (Precisa estar fora do "load" para os botões de preço funcionarem)
+        function comprarComVerificacao(stripeUrl) {
+            if (typeof Clerk !== 'undefined' && Clerk.user) {
+                window.open(stripeUrl, '_blank');
+            } else {
+                alert("Para garantir o vínculo dos seus créditos, identifique-se no Nexus antes de prosseguir.");
+                Clerk.openSignIn();
+            }
+        }
+
+        // 2. LÓGICA DE MONITORIZAÇÃO E STATUS
         window.addEventListener("load", async function () {
             try {
                 await Clerk.load();
                 const btnTrama = document.getElementById("btn-trama");
                 const perfilUsuario = document.getElementById("perfil-usuario");
 
+                if (!btnTrama) return; // Cautela técnica caso o ID mude
+
                 if (Clerk.user) {
-                    // Monta o botão de perfil para o pesquisador logado
+                    // Monta o botão de perfil no canto superior
                     Clerk.mountUserButton(perfilUsuario);
 
-                    // 1. Extraímos as permissões do usuário (Metadata do Clerk)
-                    const role = Clerk.user.publicMetadata.role; // 'admin' ou 'tester'
-                    const paidUntil = Clerk.user.publicMetadata.paid_until; // Data de expiração
-                    const now = new Date().getTime();
+                    const meta = Clerk.user.publicMetadata;
+                    const now = new Date();
+                    const userId = Clerk.user.id;
 
-                    // 2. Lógica de Redirecionamento e Acesso
-                    if (role === 'admin' || role === 'tester') {
-                        // ACESSO CONVIDADO/DEV: Botão especial e link com senha mestra
-                        btnTrama.innerText = "Acessar (Modo Developer)";
-                        btnTrama.href = "https://trama-app-production.up.railway.app/";
+                    // Definição de Estados para a triagem Nexus
+                    const isAdmin = meta.role === 'admin';
+                    const isGuest = meta.role === 'guest' || meta.trama_access === 'full';
+                    const isWaiting = meta.trama_status === 'waiting_activation';
+                    const isActive = meta.trama_status === 'active' && new Date(meta.trama_access_until) > now;
+
+                    if (isAdmin) {
+                        btnTrama.innerText = "Acessar TRAMA (Developer)";
+                        btnTrama.href = `https://trama-app-production.up.railway.app/?auth=${meta.master_key}`;
                         btnTrama.target = "_blank";
                     }
-                    else if (paidUntil && paidUntil > now) {
-                        // ACESSO PAGO VÁLIDO: Libera o Trama por 24h
+                    else if (isGuest) {
+                        btnTrama.innerText = "Acessar TRAMA (Convidado)";
+                        btnTrama.href = "https://trama-app-production.up.railway.app/?auth=upe.petrolina";
+                        btnTrama.target = "_blank";
+                    }
+                    else if (isActive) {
+                        // Lógica do Cronómetro de Acesso
+                        const expiraEm = new Date(meta.trama_access_until);
+                        const diferencaMs = expiraEm - now;
+                        const h = Math.floor(diferencaMs / 3600000);
+                        const m = Math.floor((diferencaMs % 3600000) / 60000);
+
                         btnTrama.innerText = "Acessar Aplicação";
-                        btnTrama.href = "https://trama-app-production.up.railway.app/";
+                        btnTrama.href = "https://trama-app-production.up.railway.app/?auth=upe.petrolina";
                         btnTrama.target = "_blank";
+
+                        let timer = document.getElementById("timer-trama") || document.createElement("p");
+                        timer.id = "timer-trama";
+                        timer.style = "font-size: 0.85rem; color: #6d28d9; margin-top: 8px; font-weight: 600;";
+                        timer.innerText = `⏱️ Expira em: ${h}h ${m}min`;
+                        if (!document.getElementById("timer-trama")) btnTrama.parentNode.appendChild(timer);
                     }
-                    else {
-                        // USUÁRIO SEM ACESSO ATIVO: Direciona para o Stripe
-                        btnTrama.innerText = "Liberar Acesso (R$ 15/24h)";
-                        btnTrama.onclick = function (e) {
+                    else if (isWaiting) {
+                        btnTrama.innerText = "🚀 Ativar meu acesso agora";
+                        btnTrama.onclick = async (e) => {
                             e.preventDefault();
-                            alert("Redirecionando para o pagamento seguro de 24 horas...");
-                            // window.location.href = "SEU_LINK_STRIPE_AQUI";
+                            btnTrama.innerText = "A processar...";
+                            const webhookUrl = "COLE_AQUI_A_URL_DO_MAKE"; // Importante: Cole a URL do Make aqui
+                            const response = await fetch(`${webhookUrl}?user_id=${userId}`);
+                            if (response.ok) { window.location.reload(); }
                         };
                     }
+                    else {
+                        btnTrama.innerText = "Adquirir Créditos";
+                        btnTrama.href = "#planos";
+                    }
                 } else {
-                    // USUÁRIO DESLOGADO: Abre o pop-up de login
-                    btnTrama.onclick = function (event) {
-                        event.preventDefault();
+                    // Se não estiver logado, o botão sempre abre o login
+                    btnTrama.onclick = (e) => {
+                        e.preventDefault();
                         Clerk.openSignIn();
                     };
                 }
             } catch (err) {
-                console.error("Erro na integração Nexus/Clerk:", err);
+                console.error("Erro na inicialização do Nexus:", err);
             }
         });
     </script>

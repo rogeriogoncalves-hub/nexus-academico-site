@@ -634,6 +634,53 @@ section {
     margin: 0;
 }
 
+/* Pricing Tabs */
+.pricing-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.pricing-tab {
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--border-subtle);
+    background: transparent;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.pricing-tab:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.pricing-tab.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(109, 40, 217, 0.25);
+}
+
+.pricing-pane {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.pricing-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Pricing Cards */
 .pricing-list {
     display: flex;
@@ -694,6 +741,10 @@ section {
     transform: translateX(4px);
 }
 
+.pricing-btn {
+    white-space: nowrap;
+}
+
 @media (max-width: 768px) {
     .pricing-card {
         flex-direction: column;
@@ -709,6 +760,10 @@ section {
     }
     .pricing-card-icon {
         display: none;
+    }
+    .pricing-btn {
+        width: 100%;
+        margin-top: 1rem;
     }
 }
 

@@ -52,4 +52,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 4. Tabs Pricing Logic
+    const pricingTabs = document.querySelectorAll('.pricing-tab');
+    const pricingPanes = document.querySelectorAll('.pricing-pane');
+
+    pricingTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active from all tabs and panes
+            pricingTabs.forEach(t => t.classList.remove('active'));
+            pricingPanes.forEach(p => p.classList.remove('active'));
+
+            // Add active to clicked tab
+            tab.classList.add('active');
+
+            // Show target pane
+            const targetId = tab.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
 });
