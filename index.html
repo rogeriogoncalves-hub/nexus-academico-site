@@ -19,11 +19,18 @@
 
     <header class="navbar">
         <div class="container nav-content">
-            <nav class="nav-links">
+            <nav class="nav-links" style="align-items: center;">
                 <a href="#aplicacoes-intro">Nossas Aplicações</a>
                 <a href="#para-quem">Para Quem É</a>
                 <a href="#planos">Preços</a>
-                <div id="perfil-usuario" style="margin-left: 1rem;"></div>
+
+                <div id="auth-buttons" style="display: flex; gap: 1rem; align-items: center; margin-left: 1rem;">
+                    <a href="javascript:void(0)" onclick="Clerk.openSignIn()"
+                        style="font-weight: 600; text-decoration: none;">Entrar</a>
+                    <a href="javascript:void(0)" onclick="Clerk.openSignUp()" class="btn btn-primary"
+                        style="padding: 0.4rem 1.2rem; font-size: 0.9rem; margin-left: -0.5rem;">Cadastre-se</a>
+                </div>
+                <div id="perfil-usuario" style="margin-left: 1rem; display: none;"></div>
             </nav>
         </div>
     </header>
@@ -35,13 +42,6 @@
                     <div class="hero-logo-center" style="margin-bottom: 3rem;">
                         <div class="nexus-logo-container">
                             <img src="assets/Nexus.png" alt="Símbolo Nexus" class="nexus-logo-symbol">
-                            <div class="nexus-logo-text-group">
-                                <div class="nexus-logo-line1">Nexus</div>
-                                <div class="nexus-logo-line2">Acadêmico</div>
-                                <div class="nexus-logo-line-sub">Inteligência aplicada à</div>
-                                <div class="nexus-logo-line-sub" style="margin-top: 0.2rem;">produtividade acadêmica
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <h1 style="font-size: 3rem; line-height: 1.3; margin-bottom: 2rem;">O seu ecossistema de aplicações
@@ -461,9 +461,10 @@
         // 1. FUNÇÃO GLOBAL (Precisa estar fora do "load" para os botões de preço funcionarem)
         function comprarComVerificacao(stripeUrl) {
             if (typeof Clerk !== 'undefined' && Clerk.user) {
-                window.open(stripeUrl, '_blank');
+                const urlComId = stripeUrl + "?client_reference_id=" + Clerk.user.id;
+                window.open(urlComId, '_blank');
             } else {
-                alert("Para garantir o vínculo dos seus créditos, identifique-se no Nexus antes de prosseguir.");
+                alert("É preciso entrar na plataforma se já tiver registro ou se cadastrar se for novo usuário.");
                 Clerk.openSignIn();
             }
         }
@@ -478,7 +479,10 @@
                 if (!btnTrama) return; // Cautela técnica caso o ID mude
 
                 if (Clerk.user) {
-                    // Monta o botão de perfil no canto superior
+                    // Monta o botão de perfil no canto superior e esconde Entrar/Cadastre-se
+                    document.getElementById("perfil-usuario").style.display = "block";
+                    const authButtons = document.getElementById("auth-buttons");
+                    if (authButtons) authButtons.style.display = "none";
                     Clerk.mountUserButton(perfilUsuario);
 
                     const meta = Clerk.user.publicMetadata;
@@ -523,7 +527,7 @@
                         btnTrama.onclick = async (e) => {
                             e.preventDefault();
                             btnTrama.innerText = "A processar...";
-                            const webhookUrl = "COLE_AQUI_A_URL_DO_MAKE"; // Importante: Cole a URL do Make aqui
+                            const webhookUrl = "https://hook.eu1.make.com/p9ip89osziv9wpkeux850i6uvmzf3gi2"; // Importante: Cole a URL do Make aqui
                             const response = await fetch(`${webhookUrl}?user_id=${userId}`);
                             if (response.ok) { window.location.reload(); }
                         };
@@ -533,6 +537,11 @@
                         btnTrama.href = "#planos";
                     }
                 } else {
+                    // Mostrar botões Entrar/Cadastre-se e esconder perfil
+                    const authButtons = document.getElementById("auth-buttons");
+                    if (authButtons) authButtons.style.display = "flex";
+                    document.getElementById("perfil-usuario").style.display = "none";
+
                     // Se não estiver logado, o botão sempre abre o login
                     btnTrama.onclick = (e) => {
                         e.preventDefault();

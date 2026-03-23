@@ -187,7 +187,8 @@ h2 {
 }
 
 .nexus-logo-symbol {
-    width: 25rem;
+    width: 50rem;
+    max-width: 100%;
     height: auto;
     filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.15));
     animation: pulse-glow 4s infinite alternate;
@@ -229,7 +230,8 @@ h2 {
         gap: 1rem;
     }
     .nexus-logo-symbol {
-        width: 16rem;
+        width: 32rem;
+        max-width: 100%;
     }
     .nexus-logo-line1,
     .nexus-logo-line2 {
