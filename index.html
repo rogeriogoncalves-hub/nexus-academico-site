@@ -317,18 +317,18 @@
                         </div>
                         <div class="app-details">
                             <h3 class="gradient-text">AXIS</h3>
-                            <p class="app-subtitle">Radar de Consistência de Projetos</p>
+                            <p class="app-subtitle">Radar de Consistência e Kit Plataforma Brasil</p>
                             <p class="app-description">
                                 O AXIS atua como uma camada inteligente de auditoria para projetos acadêmicos. Mais do
-                                que validar o alinhamento lógico, a plataforma escrutina transversalmente o mérito
-                                científico, a conformidade ética (CEP, LGPD), o rigor bibliométrico e a viabilidade de
-                                fomento. Uma solução avançada que prepara sua pesquisa para enfrentar bancas e editais
-                                com segurança, clareza e alto impacto.
+                                que validar o alinhamento lógico, a plataforma escrutina transversalmente o método, a
+                                ética, os instrumentos e a viabilidade. Inclui o <strong>Maestro</strong> para roteiros
+                                de reescrita e o inovador <strong>Kit Plataforma Brasil</strong>, que traduz o seu
+                                método para linguagem leiga e audita o seu TCLE automaticamente.
                             </p>
                             <div class="app-actions"
                                 style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
-                                <a href="#" class="btn btn-action" style="pointer-events: none; opacity: 0.6;">Em
-                                    Breve</a>
+                                <a href="#" id="btn-axis" class="btn btn-secondary"
+                                    style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">Acessar Aplicação &rarr;</a>
                                 <a href="#funcionalidades-axis" class="btn btn-secondary"
                                     style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">Conheça o Axis &rarr;</a>
                             </div>
@@ -440,33 +440,34 @@
                     <div class="feature-card glass-panel fade-in-up">
                         <div class="feature-icon">🛡️</div>
                         <div class="feature-content">
-                            <h3>Auditoria de 6 Radares</h3>
-                            <p>Escrutínio completo: Coerência, Ética (CEP/LGPD), Fundamentação, Instrumentos,
-                                Bibliometria e Viabilidade.</p>
+                            <h3>8 Radares de Auditoria</h3>
+                            <p>Escrutínio completo com 6 radares essenciais (Coerência, Ética, Fundamentação,
+                                Instrumentos, Bibliometria e Viabilidade) e 2 opcionais (ODS e Produto Técnico/CAPES).
+                            </p>
                         </div>
                     </div>
                     <div class="feature-card glass-panel fade-in-up delay-1">
-                        <div class="feature-icon">⚖️</div>
-                        <div class="feature-content">
-                            <h3>Simulação de Banca</h3>
-                            <p>Arguição dialética socrática baseada em lentes epistemológicas (Foucaultiana, Marxista,
-                                Decolonial, entre outras).</p>
-                        </div>
-                    </div>
-                    <div class="feature-card glass-panel fade-in-up delay-2">
                         <div class="feature-icon">🎼</div>
                         <div class="feature-content">
                             <h3>Maestro de Reescrita</h3>
-                            <p>Plano de ação prioritário com sugestões de alternativas técnicas (A e B) para correção de
-                                falhas estruturais.</p>
+                            <p>Diagnóstico integrado com um plano de ação prioritário, fornecendo sugestões de reescrita
+                                (Alternativas A e B) para a correção de falhas metodológicas estruturais.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card glass-panel fade-in-up delay-2">
+                        <div class="feature-icon">📋</div>
+                        <div class="feature-content">
+                            <h3>Kit Plataforma Brasil e TCLE</h3>
+                            <p>Geração automática de resumos leigos, fragmentação metodológica para o CEP e auditoria
+                                forense do TCLE, cruzando os riscos do projeto com as normas do CNS.</p>
                         </div>
                     </div>
                     <div class="feature-card glass-panel fade-in-up delay-3">
-                        <div class="feature-icon">📑</div>
+                        <div class="feature-icon">⚖️</div>
                         <div class="feature-content">
-                            <h3>Pente-fino Bibliométrico</h3>
-                            <p>Cruzamento automatizado de citações e análise de atualidade e pertinência da literatura
-                                científica.</p>
+                            <h3>Simulação de Banca</h3>
+                            <p>Arguição dialética socrática baseada em diferentes lentes epistemológicas para testar a
+                                robustez e a defesa teórica do projeto antes da qualificação.</p>
                         </div>
                     </div>
                 </div>
@@ -665,6 +666,7 @@
                 await Clerk.load();
                 const btnTrama = document.getElementById("btn-trama");
                 const btnNovelo = document.getElementById("btn-novelo"); // Novo Botão
+                const btnAxis = document.getElementById("btn-axis");
                 const perfilUsuario = document.getElementById("perfil-usuario");
                 const authButtons = document.getElementById("auth-buttons");
 
@@ -726,12 +728,13 @@
                     // Aplica a lógica para os dois apps
                     atualizarBotaoApp(btnTrama, 'trama', 'https://trama-app-production.up.railway.app/');
                     atualizarBotaoApp(btnNovelo, 'novelo', 'https://novelo-app-production.up.railway.app/'); // Lembre-se de ajustar a URL final do Novelo
-
+                    atualizarBotaoApp(btnAxis, 'axis', 'https://axis-app-production.up.railway.app/');
                 } else {
                     // ... Se não logado, envia para Login
                     if (authButtons) authButtons.style.display = "flex";
                     if (btnTrama) btnTrama.onclick = (e) => { e.preventDefault(); Clerk.openSignIn(); };
                     if (btnNovelo) btnNovelo.onclick = (e) => { e.preventDefault(); Clerk.openSignIn(); };
+                    if (btnAxis) btnAxis.onclick = (e) => { e.preventDefault(); Clerk.openSignIn(); };
                 }
             } catch (err) {
                 console.error("Erro na inicialização do Nexus:", err);
